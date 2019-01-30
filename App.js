@@ -1,21 +1,36 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import Provider from 'react-redux'
+import { createSwitchNavigator } from 'react-navigation'
+import LoginContainer from './app/Auth/containers/LoginContainer';
+import RegisterContainer from './app/Auth/containers/RegisterContainer';
+
+const AuthSwitch = createSwitchNavigator({
+    'login': LoginContainer,
+    'register': RegisterContainer
+})
+
+const LobbySwitch = createSwitchNavigator({
+
+})
+
+const GameSwitch = createSwitchNavigator({
+    
+})
+
+const Router = createSwitchNavigator(
+    {
+        'auth': AuthSwitch,
+        'lobby': LobbySwitch,
+        'game': GameSwitch
+    }
+)
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <Provider store={store}>
+                <Router/>
+            </Provider>
+        )
+    }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
