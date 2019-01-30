@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import RegisterScreen from '../screens/LoginScreen'
 import { actionCreators } from '../actions'
-import { lastErrorSelector, isLoggedInSelector } from '../selectors'
+import { lastErrorSelector, isLoggedInSelector, isLoadingSelector } from '../selectors'
 
 const mapStateToProps = (state) => ({
     error: lastErrorSelector(state),
-    isLoggedIn: isLoggedInSelector(state)
+    isLoggedIn: isLoggedInSelector(state),
+    isLoading: isLoadingSelector(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({

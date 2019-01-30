@@ -1,5 +1,8 @@
 import React from 'react'
 import Provider from 'react-redux'
+
+import store from './store/configureStore'
+
 import { createSwitchNavigator } from 'react-navigation'
 import LoginContainer from './app/Auth/containers/LoginContainer';
 import RegisterContainer from './app/Auth/containers/RegisterContainer';

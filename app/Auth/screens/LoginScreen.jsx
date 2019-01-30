@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Text, TextInput, View, Button, ScrollView, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { Text, TextInput, View, Button, ScrollView, StyleSheet, KeyboardAvoidingView, ActivityIndicator } from 'react-native'
+import Loader from '../../common/components/loader';
 
 class LoginScreen extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class LoginScreen extends Component {
     render() {
         return (
             <KeyboardAvoidingView>
+                <Loader loading={this.props.isLoading}/>
                 <Text>Email:</Text>
                 <TextInput
                     value={this.state.email}
@@ -37,7 +39,7 @@ class LoginScreen extends Component {
                     Нет аккаунта?
                     <Text
                         style={{fontWeight: 'bold'}}
-                        onPress={() => this.props.navigateToRegister()}>
+                        onPress={this.props.navigateToRegister}>
                         Регистрация
                     </Text>
                 </Text>
@@ -50,7 +52,9 @@ LoginScreen.propTypes = {
     loginAttempt: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
     onLoggedIn: PropTypes.func,
-    navigateToRegister: PropTypes.func.isRequired
+    navigateToRegister: PropTypes.func.isRequired,
+    isLoggedIn: PropTypes.bool,
+    isLoading: PropTypes.bool
 }
 
 export default LoginScreen
