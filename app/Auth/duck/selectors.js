@@ -1,5 +1,12 @@
 import { createSelector } from 'reselect'
 
-export const lastErrorSelector = state => state.auth.error
-export const isLoggedInSelector = state => state.auth.isLoggedIn
-export const isLoadingSelector = state => state.auth.isLoading
+
+const lastErrorSelector = state => state.auth.error
+const isLoggedInSelector = state => state.auth.isLoggedIn
+const isLoadingSelector = state => state.auth.isLoading
+
+export default {
+    lastErrorSelector,
+    isLoggedInSelector,
+    isLoadingSelector
+}

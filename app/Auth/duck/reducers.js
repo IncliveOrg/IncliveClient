@@ -1,5 +1,5 @@
 import { handleActions, combineActions } from 'redux-actions'
-import { actionCreators } from './actions'
+import actionCreators from './actions'
 
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
     isLoading: false
 }
 
-const authReducer = handleActions(
+const reducer = handleActions(
     new Map([
         [
             combineActions(
@@ -45,4 +45,4 @@ const authReducer = handleActions(
     initialState
 )
 
-export default authReducer
+export default reducer

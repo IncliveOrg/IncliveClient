@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoginScreen from '../screens/LoginScreen'
-import { actionCreators } from '../actions'
-import { lastErrorSelector, isLoggedInSelector, isLoadingSelector } from '../selectors'
+import { authSelectors, authActions } from '../'
 
 const mapStateToProps = (state) => ({
-    error: lastErrorSelector(state),
-    isLoggedIn: isLoggedInSelector(state),
-    isLoading: isLoadingSelector(state)
+    error: authSelectors.lastErrorSelector(state),
+    isLoggedIn: authSelectors.isLoggedInSelector(state),
+    isLoading: authSelectors.isLoadingSelector(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    loginAttempt: (username, password) => dispatch(actionCreators.login.request(username, password))
+    loginAttempt: (username, password) => dispatch(authActions.login.request(username, password))
 })
 
 export default connect(

@@ -1,6 +1,6 @@
 import { createActions } from 'redux-actions'
 
-export const actionCreators = createActions({
+const actionCreators = createActions({
     LOGIN: {
         REQUEST: (email, password) => ({email, password}),
         SUCCESS: undefined,
@@ -12,3 +12,5 @@ export const actionCreators = createActions({
         FAILURE: undefined
     }
 })
+
+export default actionCreators

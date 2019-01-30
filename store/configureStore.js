@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from 'redux'
 import { combineReducers } from 'redux'
-import authReducer from '../app/auth/duck'
+import { authReducer } from '../app/auth'
 
 const rootReducer = combineReducers({
-    authReducer
+    'auth': authReducer
 })
 
 const store = createStore(

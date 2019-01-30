@@ -49,10 +49,10 @@ class LoginScreen extends Component {
 }
 
 LoginScreen.propTypes = {
-    loginAttempt: PropTypes.func.isRequired,
-    error: PropTypes.string.isRequired,
+    loginAttempt: PropTypes.func,
+    error: PropTypes.string,
     onLoggedIn: PropTypes.func,
-    navigateToRegister: PropTypes.func.isRequired,
+    navigateToRegister: PropTypes.func,
     isLoggedIn: PropTypes.bool,
     isLoading: PropTypes.bool
 }
