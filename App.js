@@ -4,31 +4,47 @@ import { StatusBar } from 'react-native'
 
 import store from './store/configureStore'
 
-import { createSwitchNavigator, createAppContainer } from 'react-navigation'
-import LoginContainer from './app/auth/containers/LoginContainer';
-import RegisterContainer from './app/auth/containers/RegisterContainer';
+import { createSwitchNavigator, createAppContainer, createStackNavigator } from 'react-navigation'
+import LoginContainer from './app/auth/containers/LoginContainer'
+import RegisterContainer from './app/auth/containers/RegisterContainer'
+import PlayerLobbyContainer from './app/playerLobby/containers/PlayerLobbyContainer'
+import CreateCharacterContainer from './app/playerLobby/containers/PlayerLobbyContainer'
 
-const AuthSwitch = createSwitchNavigator({
-    'login': LoginContainer,
-    'register': RegisterContainer
-})
+const AuthStack = createSwitchNavigator(
+    {
+        'login': LoginContainer,
+        'register': RegisterContainer
+    },
+    {
+        headerMode: "none",
+        initialRouteKey: 'login'
+    }
+)
 
-/*const LobbySwitch = createSwitchNavigator({
+const LobbyStack = createStackNavigator(
+    {
+        'characters': PlayerLobbyContainer,
+        'character-creation': CreateCharacterContainer
+    },
+    {
+        headerMode: 'none',
+        initialRouteKey: 'characters'
+    }
+)
 
-})
-
-const GameSwitch = createSwitchNavigator({
+/*const GameSwitch = createSwitchNavigator({
     
 })*/
 
 const Router = createSwitchNavigator(
     {
-        'auth': AuthSwitch,
-        //'lobby': LobbySwitch,
+        'auth': AuthStack,
+        'lobby': LobbyStack,
         //'game': GameSwitch
     },
     {
-        initialRouteName: 'auth'
+        initialRouteName: 'auth',
+        headerMode: "none"
     }
 )
 

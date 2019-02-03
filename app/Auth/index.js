@@ -5,4 +5,4 @@ import authSelectors from './duck/selectors'
 import authActions from './duck/actions'
 import authApi from './api'
 
-export { authSelectors, authActions, authReducer, authSagas, authApi }
+export { authSelectors, authActions, authReducer, authSaga, authApi }

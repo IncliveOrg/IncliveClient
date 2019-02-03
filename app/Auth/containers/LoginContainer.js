@@ -8,8 +8,11 @@ const mapStateToProps = (state) => ({
     isLoading: authSelectors.isLoadingSelector(state)
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    loginAttempt: (username, password) => dispatch(authActions.login.request(username, password))
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    loginAttempt: (username, password) => dispatch(authActions.login.request(username, password)),
+    navigateToRegister: () => {
+        ownProps.navigation.navigate('register')
+    }
 })
 
 export default connect(

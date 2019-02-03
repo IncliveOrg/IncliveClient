@@ -38,7 +38,7 @@ const reducer = handleActions(
             ),
             (state, action) => ({
                 isLoading: false,
-                error: action.error
+                error: action.payload.message
             })
         ]
     ]),

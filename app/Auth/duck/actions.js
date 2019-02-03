@@ -8,9 +8,10 @@ const actionCreators = createActions({
     },
     REGISTER: {
         REQUEST: (email, password) => ({email, password}),
-        SUCCESS: undefined,
+        SUCCESS: (data) => ({playerId: data.playerId, token: data.token}),
         FAILURE: undefined
-    }
+    },
+    LOGOUT: undefined
 })
 
 export default actionCreators

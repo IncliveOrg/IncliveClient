@@ -1,10 +1,14 @@
 import { createStore, applyMiddleware } from 'redux'
 import { combineReducers } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { all } from 'redux-saga/effects'
+
 import { authReducer, authSaga } from '../app/auth'
-import createSagaMiddleware from 'redux-saga';
+import { lobbyReducer, lobbySaga } from '../app/playerLobby';
 
 const rootReducer = combineReducers({
-    'auth': authReducer
+    'auth': authReducer,
+    'lobby': lobbyReducer
 })
 
 const sagaMiddleware = createSagaMiddleware()
@@ -16,10 +20,10 @@ const store = createStore(
 
 function* rootSaga() {
     yield all([
-        authSaga
+        authSaga(),
+        lobbySaga()
     ])
 }
 sagaMiddleware.run(rootSaga)
-
 
 export default store
