@@ -1,7 +1,8 @@
 import React, { Component} from 'react'
-import { Text, TextInput, View, Button, ScrollView, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { TextInput, View, Button, ScrollView, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import PropTypes from 'prop-types'
-import Loader from '../../common/components/loader';
+import Loader from '../../common/components/Loader'
+import StyledText from '../../common/components/StyledText'
 
 class RegisterScreen extends Component {
     constructor(props) {
@@ -22,27 +23,27 @@ class RegisterScreen extends Component {
         return (
             <KeyboardAvoidingView>
                 <Loader loading={this.props.isLoading}/>
-                <Text>Email:</Text>
+                <StyledText>Email:</StyledText>
                 <TextInput
                     value={this.state.email}
-                    onChangeText={newValue => this.setState({email: newValue})}/>
-                <Text>Пароль:</Text>
+                    onChangeStyledText={newValue => this.setState({email: newValue})}/>
+                <StyledText>Пароль:</StyledText>
                 <TextInput
-                    secureTextEntry
+                    secureStyledTextEntry
                     value={this.state.password}
-                    onChangeText={newValue => this.setState({password: newValue})}/>
+                    onChangeStyledText={newValue => this.setState({password: newValue})}/>
                 <Button
                     title='Регистрация'
                     onPress={() => this.props.registerAttempt(this.state.email, this.state.password)}/>
-                <Text>{this.props.error + ''}</Text>
-                <Text>
+                <StyledText>{this.props.error + ''}</StyledText>
+                <StyledText>
                     Уже есть аккаунт?
-                    <Text
+                    <StyledText
                         style={{fontWeight: 'bold'}}
                         onPress={this.props.navigateToLogin}>
                         Вход
-                    </Text>
-                </Text>
+                    </StyledText>
+                </StyledText>
             </KeyboardAvoidingView>
         )
     }

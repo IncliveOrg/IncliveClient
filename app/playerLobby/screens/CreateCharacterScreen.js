@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ScrollView, View, Text, TextInput, Picker, Button } from 'react-native'
+import { ScrollView, View, TextInput, Picker, Button } from 'react-native'
+import StyledText from '../../common/components/StyledText'
 
 class CreateCharacterScreen extends React.Component {
     constructor(props) {
@@ -15,13 +16,13 @@ class CreateCharacterScreen extends React.Component {
         return (
             <ScrollView>
                 <View>
-                    <Text>Введите имя персонажа:</Text>
-                    <TextInput
+                    <StyledText>Введите имя персонажа:</StyledText>
+                    <StyledTextInput
                         value={this.state.name}
-                        onChangeText={newValue => this.setState({name: newValue})}/>
+                        onChangeStyledText={newValue => this.setState({name: newValue})}/>
                 </View>
                 <View>
-                    <Text>Выберите пол персонажа:</Text>
+                    <StyledText>Выберите пол персонажа:</StyledText>
                     <Picker
                         selectedValue={this.state.sex}
                         onValueChange={(itemValue, itemIndex) => this.setState({sex: itemValue})}

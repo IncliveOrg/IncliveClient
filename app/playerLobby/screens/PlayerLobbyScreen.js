@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Button, FlatList, TouchableOpacity } from 'react-native'
-import LobbyCharacterList from '../components/LobbyCharacterList';
+import StyledText from '../../common/components/StyledText'
 
 class PlayerLobbyScreen extends React.Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class PlayerLobbyScreen extends React.Component {
         return (
             <TouchableOpacity
                 onPress={this.props.onCharacterChosen(item.id)}>
-                <Text>{item.name}</Text>
+                <StyledText>{item.name}</StyledText>
             </TouchableOpacity>
         )
     }
